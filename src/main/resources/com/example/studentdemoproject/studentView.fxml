@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
 <AnchorPane prefHeight="563.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentdemoproject.StudentViewController">
    <children>
       <Label layoutX="28.0" layoutY="30.0" prefHeight="11.0" prefWidth="22.0" text="id" />
@@ -46,11 +45,11 @@
         </columns>
       </TableView>
       <Button layoutX="303.0" layoutY="199.0" mnemonicParsing="false" onAction="#showMaleAction" prefHeight="25.0" prefWidth="138.0" text="Show Only Male" />
-      <Label fx:id="warningBox" layoutX="531.0" layoutY="108.0" prefHeight="129.0" prefWidth="138.0" style="-fx-border-color: red;" text=" show error" />
       <Button layoutX="30.0" layoutY="435.0" mnemonicParsing="false" onAction="#addCalculateCGPAButtonAction" prefHeight="76.0" prefWidth="236.0" text="Calculate Average CGPA" />
       <TextArea fx:id="averageCGPAArea" layoutX="404.0" layoutY="426.0" prefHeight="100.0" prefWidth="263.0" text="Show Average CGPA" />
       <Line endX="657.0" layoutX="30.0" layoutY="408.0" startX="-100.0" />
       <Line endX="100.0" layoutX="313.0" layoutY="408.0" startX="-100.0" />
       <Line endX="19.5" endY="125.0" layoutX="303.0" layoutY="408.0" startX="19.5" startY="0.5" />
+      <TextArea fx:id="warningBox" layoutX="542.0" layoutY="125.0" prefHeight="119.0" prefWidth="129.0" />
    </children>
 </AnchorPane>

@@ -66,7 +66,7 @@ public class StudentViewController {
     private TableView<Student> studentInfoTable;
 
     @FXML
-    private Label warningBox;
+    private TextArea warningBox;
 
     ArrayList<Student>studentList;
     ToggleGroup tg;
@@ -78,34 +78,56 @@ public class StudentViewController {
 
     @FXML
     void addStudentActionButton(ActionEvent event) {
-     String gender="";
+        boolean digitFound=false;
+        for(int i=0; i<nameTextField.getText().length(); i++){
+            if(nameTextField.getText().charAt(i) >='0' && nameTextField.getText().charAt(i) <='9'){
+                digitFound=true;
+            }
+        }
 
-     if(maleRadioButton.isSelected())
-         gender="Male";
-     else if (femaleRadioButton.isSelected())
-         gender="Female";
+        if(idTextFiield.getText().isEmpty() ||
+                nameTextField.getText().isEmpty() ||
+                cgpaTextField.getText().isEmpty() ||
+                dateBox.getValue().isAfter(LocalDate.now()) ||
+                digitFound
+        ){
+            warningBox.setText("fill up properly");
 
-     ArrayList<String> skillSet=  new ArrayList<String>();
-     if(javaCheckBox.isSelected() && pythonCheckBox.isSelected() ){
-         skillSet.add("Java");
-         skillSet.add("Python");
-     }
-     else if (javaCheckBox.isSelected())
-         skillSet.add("Java");
-      else if (pythonCheckBox.isSelected())
-         skillSet.add("Python");
 
-     Student studentToBeAdded=new Student (
-            Integer.parseInt(idTextFiield.getText()),
-             nameTextField.getText(),
-             majorComboBox.getValue(),
-             gender,
-             Arrays.toString(skillSet.toArray()),
-             Float.parseFloat(cgpaTextField.getText()),
-             dateBox.getValue()
-     );
-     studentInfoTable.getItems().add(studentToBeAdded);
-     studentList.add(studentToBeAdded);
+        }
+
+        else{
+            warningBox.setText("Student add successfully");
+            String gender="";
+
+            if(maleRadioButton.isSelected())
+                gender="Male";
+            else if (femaleRadioButton.isSelected())
+                gender="Female";
+
+            ArrayList<String> skillSet=  new ArrayList<String>();
+            if(javaCheckBox.isSelected() && pythonCheckBox.isSelected() ){
+                skillSet.add("Java");
+                skillSet.add("Python");
+            }
+            else if (javaCheckBox.isSelected())
+                skillSet.add("Java");
+            else if (pythonCheckBox.isSelected())
+                skillSet.add("Python");
+
+            Student studentToBeAdded=new Student (
+                    Integer.parseInt(idTextFiield.getText()),
+                    nameTextField.getText(),
+                    majorComboBox.getValue(),
+                    gender,
+                    Arrays.toString(skillSet.toArray()),
+                    Float.parseFloat(cgpaTextField.getText()),
+                    dateBox.getValue()
+            );
+            studentInfoTable.getItems().add(studentToBeAdded);
+            studentList.add(studentToBeAdded);
+        }
+
 
     }
 
