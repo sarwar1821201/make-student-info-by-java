@@ -2,15 +2,7 @@ package com.example.studentdemoproject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.util.ArrayList;
 
@@ -74,6 +66,7 @@ public class StudentViewController {
     private Label warningBox;
 
     ArrayList<Student>studentList;
+    ToggleGroup tg;
 
     @FXML
     void addCalculateCGPAButtonAction(ActionEvent event) {
@@ -82,6 +75,23 @@ public class StudentViewController {
 
     @FXML
     void addStudentActionButton(ActionEvent event) {
+     String gender="";
+
+     if(maleRadioButton.isSelected())
+         gender="Male";
+     else if (femaleRadioButton.isSelected())
+         gender="Female";
+
+     ArrayList<String> skillSet=  new ArrayList<String>();
+     if(javaCheckBox.isSelected() && pythonCheckBox.isSelected() ){
+         skillSet.add("Java");
+         skillSet.add("Python");
+     } else if (javaCheckBox.isSelected()) {
+         skillSet.add("Java");
+     } else if (pythonCheckBox.isSelected()) {
+         skillSet.add("Python");
+
+     }
 
     }
 
