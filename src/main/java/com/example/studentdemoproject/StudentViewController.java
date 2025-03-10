@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class StudentViewController {
 
@@ -86,12 +87,23 @@ public class StudentViewController {
      if(javaCheckBox.isSelected() && pythonCheckBox.isSelected() ){
          skillSet.add("Java");
          skillSet.add("Python");
-     } else if (javaCheckBox.isSelected()) {
+     }
+     else if (javaCheckBox.isSelected())
          skillSet.add("Java");
-     } else if (pythonCheckBox.isSelected()) {
+      else if (pythonCheckBox.isSelected())
          skillSet.add("Python");
 
-     }
+     Student studentToBeAdded=new Student (
+            Integer.parseInt(idTextFiield.getText()),
+             Float.parseFloat(cgpaTextField.getText()),
+             dateBox.getValue(),
+             nameTextField.getText(),
+             majorComboBox.getValue(),
+             gender,
+             Arrays.toString(skillSet.toArray())
+     );
+     studentInfoTable.getItems().add(studentToBeAdded);
+     studentList.add(studentToBeAdded);
 
     }
 

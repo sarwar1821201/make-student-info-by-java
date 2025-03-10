@@ -22,6 +22,9 @@ public class Student {
         this.skills = skills;
     }
 
+    public Student(int i, String text, String value, Object o) {
+    }
+
     public int getId() {
         return id;
     }
