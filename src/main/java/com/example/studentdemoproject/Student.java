@@ -4,25 +4,26 @@ import java.time.LocalDate;
 
 public class Student {
     private int id;
+    private String name, major, gender, skills;
     private float cgpa;
     private LocalDate DOB;
-    private String name, major, gender, skills;
+
 
     public Student() {
 
     }
 
-    public Student(int id, float cgpa, LocalDate DOB, String name, String major, String gender, String skills) {
+    public Student(int id, String name, String major, String gender, String skills, float cgpa, LocalDate DOB) {
         this.id = id;
-        this.cgpa = cgpa;
-        this.DOB = DOB;
         this.name = name;
         this.major = major;
         this.gender = gender;
         this.skills = skills;
+        this.cgpa = cgpa;
+        this.DOB = DOB;
     }
 
-    public Student(int i, String text, String value, Object o) {
+    public Student(int i, String text, String value, String gender, String string, float v, LocalDate value1, Object o) {
     }
 
     public int getId() {
@@ -31,22 +32,6 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public float getCgpa() {
-        return cgpa;
-    }
-
-    public void setCgpa(float cgpa) {
-        this.cgpa = cgpa;
-    }
-
-    public LocalDate getDOB() {
-        return DOB;
-    }
-
-    public void setDOB(LocalDate DOB) {
-        this.DOB = DOB;
     }
 
     public String getName() {
@@ -81,16 +66,32 @@ public class Student {
         this.skills = skills;
     }
 
+    public float getCgpa() {
+        return cgpa;
+    }
+
+    public void setCgpa(float cgpa) {
+        this.cgpa = cgpa;
+    }
+
+    public LocalDate getDOB() {
+        return DOB;
+    }
+
+    public void setDOB(LocalDate DOB) {
+        this.DOB = DOB;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", cgpa=" + cgpa +
-                ", DOB=" + DOB +
                 ", name='" + name + '\'' +
                 ", major='" + major + '\'' +
                 ", gender='" + gender + '\'' +
                 ", skills='" + skills + '\'' +
+                ", cgpa=" + cgpa +
+                ", DOB=" + DOB +
                 '}';
     }
 }

@@ -3,7 +3,9 @@ package com.example.studentdemoproject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -95,12 +97,12 @@ public class StudentViewController {
 
      Student studentToBeAdded=new Student (
             Integer.parseInt(idTextFiield.getText()),
-             Float.parseFloat(cgpaTextField.getText()),
-             dateBox.getValue(),
              nameTextField.getText(),
              majorComboBox.getValue(),
              gender,
-             Arrays.toString(skillSet.toArray())
+             Arrays.toString(skillSet.toArray()),
+             Float.parseFloat(cgpaTextField.getText()),
+             dateBox.getValue()
      );
      studentInfoTable.getItems().add(studentToBeAdded);
      studentList.add(studentToBeAdded);
@@ -114,6 +116,21 @@ public class StudentViewController {
 
     @FXML
     void initialize(){
+        studentList=new ArrayList<>();
+        tg= new ToggleGroup();
+        maleRadioButton.setToggleGroup(tg);
+        femaleRadioButton.setToggleGroup(tg);
+        dateBox.setValue(LocalDate.now());
+
+        majorComboBox.getItems().addAll("CSE","EEE","BBA","CIVIL");
+
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("id"));
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("name"));
+        majorTableColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("major"));
+        genderTableColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("gender"));
+        skillsTableColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("skills"));
+        cgpaTableColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("cgpa"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<Student,String>("DOB"));
 
     }
 
