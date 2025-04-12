@@ -73,6 +73,12 @@ public class StudentViewController {
 
     @FXML
     void addCalculateCGPAButtonAction(ActionEvent event) {
+       float cgpaSum=0;
+       for(Student s: studentInfoTable.getItems()){
+           cgpaSum=cgpaSum+s.getCgpa();
+       }
+       float averageCgpa=cgpaSum/studentInfoTable.getItems().size();
+       averageCGPAArea.setText("Average CGPA is = "+ averageCgpa);
 
     }
 
