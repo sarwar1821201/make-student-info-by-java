@@ -143,7 +143,11 @@ public class StudentViewController {
 
     @FXML
     void showFeMaleAction(ActionEvent event) {
-
+      studentInfoTable.getItems().clear();
+      for(Student s: studentList){
+          if(s.getGender().equals("Female"))
+              studentInfoTable.getItems().add(s);
+      }
     }
 
     @FXML
