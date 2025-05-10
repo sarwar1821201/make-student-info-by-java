@@ -1,6 +1,7 @@
 package com.example.studentdemoproject;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Student {
     private int id;
@@ -93,5 +94,10 @@ public class Student {
                 ", cgpa=" + cgpa +
                 ", DOB=" + DOB +
                 '}';
+    }
+
+    public int calculateAge(){
+        Period period=Period.between(this.DOB, LocalDate.now());
+        return period.getYears();
     }
 }

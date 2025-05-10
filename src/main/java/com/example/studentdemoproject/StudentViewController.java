@@ -156,6 +156,34 @@ public class StudentViewController {
       }
     }
 
+
+    @FXML
+    void showMostSeniourStudentButton(ActionEvent event) {
+     ArrayList<Integer>ageList=new ArrayList<Integer>();
+     for(Student s: studentInfoTable.getItems()){
+         ageList.add(s.calculateAge());
+     }
+
+   int maximumAge=ageList.get(0);
+     for(int i=1; i<ageList.size();i++){
+         if(maximumAge<ageList.get(i)){
+             maximumAge=ageList.get(i);
+         }
+     }
+
+     String mostSeniorStudent="";
+     for(Student s: studentInfoTable.getItems()){
+         if(s.calculateAge()==maximumAge){
+             mostSeniorStudent=s.getName();
+         }
+     }
+
+     averageCGPAArea.setText("The age of most senior student is :"+ maximumAge + "\n" +
+             "Student Name :" + mostSeniorStudent);
+
+    }
+
+
     @FXML
     void initialize(){
         studentList=new ArrayList<>();
