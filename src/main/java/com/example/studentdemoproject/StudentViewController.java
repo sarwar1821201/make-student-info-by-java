@@ -103,44 +103,61 @@ public class StudentViewController {
         }
 
         else{
-            warningBox.setText("Student add successfully");
-            String gender="";
 
-            if(maleRadioButton.isSelected())
-                gender="Male";
-            else if (femaleRadioButton.isSelected())
-                gender="Female";
-
-            ArrayList<String> skillSet=  new ArrayList<String>();
-            if(javaCheckBox.isSelected() && pythonCheckBox.isSelected() ){
-                skillSet.add("Java");
-                skillSet.add("Python");
+            boolean sameNameFound=false;
+            for(Student s: studentList){
+                if(s.getName().equals(nameTextField.getText())){
+                    sameNameFound=true;
+                }
             }
-            else if (javaCheckBox.isSelected())
-                skillSet.add("Java");
-            else if (pythonCheckBox.isSelected())
-                skillSet.add("Python");
 
-            Student studentToBeAdded=new Student (
-                    Integer.parseInt(idTextFiield.getText()),
-                    nameTextField.getText(),
-                    majorComboBox.getValue(),
-                    gender,
-                    Arrays.toString(skillSet.toArray()),
-                    Float.parseFloat(cgpaTextField.getText()),
-                    dateBox.getValue()
-            );
-            studentInfoTable.getItems().add(studentToBeAdded);
-            studentList.add(studentToBeAdded);
+            if(sameNameFound){
+                warningBox.setText("same name found");
+            }
 
-            idTextFiield.clear();
-            nameTextField.clear();
-            cgpaTextField.clear();
-            maleRadioButton.setSelected(false);
-            femaleRadioButton.setSelected(false);
-            javaCheckBox.setSelected(false);
-            pythonCheckBox.setSelected(false);
-            warningBox.setStyle("-fx-border-color: green");
+            else{
+
+                warningBox.setText("Student add successfully");
+                String gender="";
+
+                if(maleRadioButton.isSelected())
+                    gender="Male";
+                else if (femaleRadioButton.isSelected())
+                    gender="Female";
+
+                ArrayList<String> skillSet=  new ArrayList<String>();
+                if(javaCheckBox.isSelected() && pythonCheckBox.isSelected() ){
+                    skillSet.add("Java");
+                    skillSet.add("Python");
+                }
+                else if (javaCheckBox.isSelected())
+                    skillSet.add("Java");
+                else if (pythonCheckBox.isSelected())
+                    skillSet.add("Python");
+
+                Student studentToBeAdded=new Student (
+                        Integer.parseInt(idTextFiield.getText()),
+                        nameTextField.getText(),
+                        majorComboBox.getValue(),
+                        gender,
+                        Arrays.toString(skillSet.toArray()),
+                        Float.parseFloat(cgpaTextField.getText()),
+                        dateBox.getValue()
+                );
+                studentInfoTable.getItems().add(studentToBeAdded);
+                studentList.add(studentToBeAdded);
+
+                idTextFiield.clear();
+                nameTextField.clear();
+                cgpaTextField.clear();
+                maleRadioButton.setSelected(false);
+                femaleRadioButton.setSelected(false);
+                javaCheckBox.setSelected(false);
+                pythonCheckBox.setSelected(false);
+                warningBox.setStyle("-fx-border-color: green");
+
+            }
+
 
 
         }
