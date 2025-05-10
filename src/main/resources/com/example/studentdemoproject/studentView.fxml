@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="563.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentdemoproject.StudentViewController">
+<AnchorPane prefHeight="603.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentdemoproject.StudentViewController">
    <children>
       <Label layoutX="28.0" layoutY="30.0" prefHeight="11.0" prefWidth="22.0" text="id" />
       <TextField fx:id="idTextFiield" layoutX="68.0" layoutY="26.0" />
@@ -45,13 +45,15 @@
         </columns>
       </TableView>
       <Button layoutX="240.0" layoutY="199.0" mnemonicParsing="false" onAction="#showMaleAction" prefHeight="25.0" prefWidth="123.0" text="Show Only Male" />
-      <Button layoutX="30.0" layoutY="435.0" mnemonicParsing="false" onAction="#addCalculateCGPAButtonAction" prefHeight="25.0" prefWidth="218.0" text="Calculate Average CGPA" />
-      <TextArea fx:id="averageCGPAArea" layoutX="404.0" layoutY="426.0" prefHeight="100.0" prefWidth="246.0" text="Show Average CGPA" />
-      <Line endX="657.0" layoutX="30.0" layoutY="408.0" startX="-100.0" />
-      <Line endX="100.0" layoutX="313.0" layoutY="408.0" startX="-100.0" />
-      <Line endX="19.5" endY="125.0" layoutX="303.0" layoutY="408.0" startX="19.5" startY="0.5" />
+      <Button layoutX="5.0" layoutY="520.0" mnemonicParsing="false" onAction="#addCalculateCGPAButtonAction" prefHeight="25.0" prefWidth="149.0" text="Calculate Average CGPA" />
+      <TextArea fx:id="averageCGPAArea" layoutX="421.0" layoutY="518.0" prefHeight="55.0" prefWidth="191.0" text="Show Average CGPA" />
+      <Line endX="714.0" endY="92.0" layoutX="30.0" layoutY="408.0" startX="-13.0" startY="85.0" />
+      <Line endX="40.5" endY="182.0" layoutX="303.0" layoutY="408.0" startX="40.5" startY="88.70709228515625" />
       <TextArea fx:id="warningBox" layoutX="542.0" layoutY="125.0" prefHeight="119.0" prefWidth="129.0" />
       <Button layoutX="390.0" layoutY="199.0" mnemonicParsing="false" onAction="#showFeMaleAction" prefHeight="25.0" prefWidth="138.0" text="Show Only FeMale" />
-      <Button layoutX="56.0" layoutY="476.0" mnemonicParsing="false" onAction="#showMostSeniourStudentButton" prefHeight="17.0" prefWidth="167.0" text="Show most seniour student" />
+      <Button layoutX="158.0" layoutY="514.0" mnemonicParsing="false" onAction="#showMostSeniourStudentButton" prefHeight="37.0" prefWidth="161.0" text="Show most seniour student" />
+      <Label layoutX="27.0" layoutY="441.0" text="Enter Minimum cgpa to search" />
+      <TextField fx:id="filtercgpaTextField" layoutX="198.0" layoutY="437.0" prefHeight="25.0" prefWidth="191.0" />
+      <Button layoutX="512.0" layoutY="437.0" mnemonicParsing="false" onAction="#filterCGPAButtonOnClick" prefHeight="25.0" prefWidth="197.0" text="Filter Table With Match Students" />
    </children>
 </AnchorPane>

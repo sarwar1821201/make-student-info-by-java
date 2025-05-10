@@ -52,6 +52,9 @@ public class StudentViewController {
     private RadioButton maleRadioButton;
 
     @FXML
+    private TextField filtercgpaTextField;
+
+    @FXML
     private TableColumn<Student, String> nameTableColumn;
 
     @FXML
@@ -217,6 +220,18 @@ public class StudentViewController {
 
      averageCGPAArea.setText("The age of most senior student is :"+ maximumAge + "\n" +
              "Student Name :" + mostSeniorStudent);
+
+    }
+
+    @FXML
+    void filterCGPAButtonOnClick(ActionEvent event) {
+        studentInfoTable.getItems().clear();
+
+        for(Student s: studentList){
+            if(s.getCgpa()>= Float.parseFloat(filtercgpaTextField.getText())){
+                studentInfoTable.getItems().add(s);
+            }
+        }
 
     }
 
