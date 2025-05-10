@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class StudentViewController {
 
@@ -91,7 +92,7 @@ public class StudentViewController {
             }
         }
 
-        if(idTextFiield.getText().isEmpty() ||
+        if(
                 nameTextField.getText().isEmpty() ||
                 cgpaTextField.getText().isEmpty() ||
                 dateBox.getValue().isAfter(LocalDate.now()) ||
@@ -134,6 +135,14 @@ public class StudentViewController {
                     skillSet.add("Java");
                 else if (pythonCheckBox.isSelected())
                     skillSet.add("Python");
+
+                /// random digit
+
+                Random r=new Random();
+              //  int id=r.nextInt(10000);
+                String id=String.format("%04d", r.nextInt(10000));
+                idTextFiield.setText(id);
+
 
                 Student studentToBeAdded=new Student (
                         Integer.parseInt(idTextFiield.getText()),
@@ -215,6 +224,7 @@ public class StudentViewController {
     @FXML
     void initialize(){
         studentList=new ArrayList<>();
+        idTextFiield.setEditable(false);
         tg= new ToggleGroup();
         maleRadioButton.setToggleGroup(tg);
         femaleRadioButton.setToggleGroup(tg);
