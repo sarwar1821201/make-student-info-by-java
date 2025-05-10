@@ -121,8 +121,6 @@ public class StudentViewController {
             }
 
             else{
-
-                warningBox.setText("Student add successfully");
                 String gender="";
 
                 if(maleRadioButton.isSelected())
@@ -157,25 +155,30 @@ public class StudentViewController {
                         Float.parseFloat(cgpaTextField.getText()),
                         dateBox.getValue()
                 );
-                studentInfoTable.getItems().add(studentToBeAdded);
-                studentList.add(studentToBeAdded);
 
-                idTextFiield.clear();
-                nameTextField.clear();
-                cgpaTextField.clear();
-                maleRadioButton.setSelected(false);
-                femaleRadioButton.setSelected(false);
-                javaCheckBox.setSelected(false);
-                pythonCheckBox.setSelected(false);
-                warningBox.setStyle("-fx-border-color: green");
+                Alert confirmAlert=new Alert(Alert.AlertType.CONFIRMATION);
+                confirmAlert.setContentText("Are You Sure??");
+                confirmAlert.showAndWait().ifPresent(response ->{
+                    if(response== ButtonType.OK){
+                        studentInfoTable.getItems().add(studentToBeAdded);
+                        studentList.add(studentToBeAdded);
+
+                        idTextFiield.clear();
+                        nameTextField.clear();
+                        cgpaTextField.clear();
+                        maleRadioButton.setSelected(false);
+                        femaleRadioButton.setSelected(false);
+                        javaCheckBox.setSelected(false);
+                        pythonCheckBox.setSelected(false);
+                        warningBox.setText("Student add successfully");
+                        warningBox.setStyle("-fx-border-color: green");
+
+                    }
+                });
 
             }
 
-
-
         }
-
-
     }
 
     @FXML
