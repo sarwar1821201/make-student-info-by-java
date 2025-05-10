@@ -132,6 +132,17 @@ public class StudentViewController {
             );
             studentInfoTable.getItems().add(studentToBeAdded);
             studentList.add(studentToBeAdded);
+
+            idTextFiield.clear();
+            nameTextField.clear();
+            cgpaTextField.clear();
+            maleRadioButton.setSelected(false);
+            femaleRadioButton.setSelected(false);
+            javaCheckBox.setSelected(false);
+            pythonCheckBox.setSelected(false);
+            warningBox.setStyle("-fx-border-color: green");
+
+
         }
 
 
