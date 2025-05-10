@@ -101,9 +101,10 @@ public class StudentViewController {
                 dateBox.getValue().isAfter(LocalDate.now()) ||
                 digitFound
         ){
-            warningBox.setText("fill up properly");
-
-
+            //warningBox.setText("fill up properly");
+            Alert errorAlert= new Alert(Alert.AlertType.ERROR);
+            errorAlert.setContentText("fill up the form properly ");
+            errorAlert.show();
         }
 
         else{
